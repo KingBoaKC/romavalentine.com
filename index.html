@@ -632,6 +632,7 @@
 
     /* ─── MOBILE MENU ─────────────────────────────────────── */
     @media (max-width: 768px) {
+      .nav-inner { height: 68px; padding: 0 1.25rem; }
       .nav-links, .nav-cta { display: none; }
       .nav-toggle { display: flex; }
       .nav-links.open {
@@ -640,22 +641,39 @@
         position: fixed;
         top: 68px; left: 0; right: 0;
         background: var(--white);
-        padding: 2rem;
-        gap: 1.5rem;
+        padding: 1.5rem;
+        gap: 1.25rem;
         border-bottom: 1px solid var(--ink-10);
         box-shadow: 0 8px 32px rgba(32,31,35,0.1);
+        z-index: 99;
       }
-      .about-grid, .contact-grid, .creds-grid { grid-template-columns: 1fr; gap: 3rem; }
+      section { padding: 4rem 1.25rem; }
+      #home { padding: 88px 1.25rem 4rem; }
+      #events { padding: 4rem 1.25rem; }
+      .about-grid, .contact-grid, .creds-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .services-grid { grid-template-columns: 1fr; }
       .form-row { grid-template-columns: 1fr; }
-      .hero-stats { grid-template-columns: repeat(3, auto); gap: 2rem; }
-      .event-row { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.5rem; }
+      .hero-stats { grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+      .hero-actions { flex-direction: column; }
+      .hero-actions a { text-align: center; }
+      .event-row { grid-template-columns: 1fr; gap: 0.4rem; padding: 1.25rem; }
       .event-scale { text-align: left; }
-      .footer-inner { flex-direction: column; align-items: flex-start; }
+      .footer-inner { flex-direction: column; align-items: flex-start; gap: 1rem; }
+      .footer-links { flex-wrap: wrap; gap: 1rem; }
+      .service-card { padding: 1.75rem; }
+      .pillar { padding: 1.25rem 1.5rem; }
+      .contact-link { flex-wrap: wrap; }
     }
 
     @media (max-width: 480px) {
+      .hero-title { font-size: 2.75rem; }
       .hero-stats { grid-template-columns: 1fr 1fr; }
+      section { padding: 3rem 1rem; }
+      #home { padding: 80px 1rem 3rem; }
+      .stat-num { font-size: 2rem; }
+      .section-heading { font-size: 1.75rem; }
+      .creds-grid > div + div { margin-top: 0; }
+      .footer-links { flex-direction: column; gap: 0.75rem; }
     }
 
     /* ─── ANIMATIONS ──────────────────────────────────────── */
@@ -1139,7 +1157,7 @@
         <li><a href="#about">About</a></li>
         <li><a href="#services">Services</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="https://noodlenuggetllc.com" target="_blank" rel="noopener">Proudly powered by NoodleNugget</a></li>
+        <li><a href="https://noodlenugget.com" target="_blank" rel="noopener">Proudly powered by NoodleNugget</a></li>
       </ul>
     </div>
   </footer>
