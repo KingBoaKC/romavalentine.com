@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roma Valentine — Community Operations Specialist</title>
+  <meta name="description" content="Roma Valentine builds the operational systems that make community events actually work. Event Coordinator, Community Operations Specialist & Project Manager based in Kansas City, MO." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:        #201f23;
+      --ink-80:     #3a3940;
+      --ink-60:     #57555e;
+      --ink-40:     #7e7c86;
+      --ink-20:     #b0aeb8;
+      --ink-10:     #d4d2dc;
+      --ink-05:     #eeecf4;
+      --off-white:  #f8f7fb;
+      --white:      #ffffff;
+      --font-serif: 'Cormorant Garamond', Georgia, serif;
+      --font-sans:  'Inter', system-ui, sans-serif;
+      --max-w:      1120px;
+      --transition: 0.3s ease;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--off-white);
+      color: var(--ink);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── NAV ─────────────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(248, 247, 251, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--ink-10);
+      transition: box-shadow var(--transition);
+    }
+    nav.scrolled { box-shadow: 0 2px 24px rgba(32,31,35,0.08); }
+    .nav-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 78px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+    .nav-logo img {
+      height: 56px;
+      width: auto;
+      display: block;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-60);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+    .nav-links a:hover { color: var(--ink); }
+    .nav-cta {
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--ink);
+      padding: 0.6rem 1.4rem;
+      border: none;
+      text-decoration: none;
+      cursor: pointer;
+      transition: background var(--transition), transform var(--transition);
+    }
+    .nav-cta:hover { background: var(--ink-80); transform: translateY(-1px); }
+
+    .nav-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--ink);
+      transition: all 0.3s ease;
+    }
+
+    /* ─── HERO ────────────────────────────────────────────── */
+    #home {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding: 100px 2rem 80px;
+      background: var(--white);
+      position: relative;
+      overflow: hidden;
+    }
+    #home::before {
+      content: '';
+      position: absolute;
+      right: -80px; top: -80px;
+      width: 560px; height: 560px;
+      border-radius: 50%;
+      background: var(--ink-05);
+      pointer-events: none;
+    }
+    #home::after {
+      content: '';
+      position: absolute;
+      left: -40px; bottom: -100px;
+      width: 300px; height: 300px;
+      border-radius: 50%;
+      background: var(--ink-05);
+      opacity: 0.6;
+      pointer-events: none;
+    }
+    .hero-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      width: 100%;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-eyebrow {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--ink-40);
+      margin-bottom: 1.25rem;
+    }
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(3rem, 7vw, 6.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+    .hero-title em {
+      font-style: italic;
+      font-weight: 300;
+    }
+    .hero-sub {
+      font-family: var(--font-serif);
+      font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+      font-weight: 300;
+      color: var(--ink-60);
+      margin-bottom: 2rem;
+      max-width: 600px;
+      line-height: 1.5;
+    }
+    .hero-tagline {
+      font-size: 1rem;
+      font-weight: 300;
+      color: var(--ink-60);
+      max-width: 560px;
+      margin-bottom: 3rem;
+      line-height: 1.75;
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .btn-primary {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--ink);
+      padding: 0.875rem 2rem;
+      text-decoration: none;
+      transition: background var(--transition), transform var(--transition);
+    }
+    .btn-primary:hover { background: var(--ink-80); transform: translateY(-2px); }
+    .btn-secondary {
+      display: inline-block;
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink);
+      background: transparent;
+      padding: 0.875rem 2rem;
+      border: 1px solid var(--ink-20);
+      text-decoration: none;
+      transition: border-color var(--transition), color var(--transition), transform var(--transition);
+    }
+    .btn-secondary:hover {
+      border-color: var(--ink);
+      transform: translateY(-2px);
+    }
+    .hero-stats {
+      margin-top: 5rem;
+      display: grid;
+      grid-template-columns: repeat(3, auto);
+      gap: 3rem;
+      width: fit-content;
+    }
+    .stat-num {
+      font-family: var(--font-serif);
+      font-size: 2.75rem;
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1;
+    }
+    .stat-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-40);
+      margin-top: 0.35rem;
+    }
+
+    /* ─── SECTIONS ────────────────────────────────────────── */
+    section { padding: 7rem 2rem; }
+    .section-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+    }
+    .section-label {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--ink-40);
+      margin-bottom: 1.25rem;
+    }
+    .section-heading {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+    .section-heading em { font-style: italic; }
+    .divider {
+      width: 48px;
+      height: 1px;
+      background: var(--ink-20);
+      margin-bottom: 2rem;
+    }
+
+    /* ─── ABOUT ───────────────────────────────────────────── */
+    #about { background: var(--off-white); }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+    .about-text p {
+      color: var(--ink-60);
+      margin-bottom: 1.25rem;
+      font-weight: 300;
+    }
+    .about-text p:last-child { margin-bottom: 0; }
+    .about-pillars {
+      display: grid;
+      gap: 1px;
+      background: var(--ink-10);
+    }
+    .pillar {
+      background: var(--white);
+      padding: 1.75rem 2rem;
+      transition: background var(--transition);
+    }
+    .pillar:hover { background: var(--ink-05); }
+    .pillar-icon {
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+      line-height: 1;
+    }
+    .pillar-title {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 0.4rem;
+    }
+    .pillar-desc {
+      font-size: 0.875rem;
+      color: var(--ink-60);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    /* ─── SERVICES ────────────────────────────────────────── */
+    #services { background: var(--white); }
+    .services-intro {
+      max-width: 600px;
+      margin-bottom: 4rem;
+    }
+    .services-intro p {
+      color: var(--ink-60);
+      font-weight: 300;
+    }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1px;
+      background: var(--ink-10);
+      margin-bottom: 4rem;
+    }
+    .service-card {
+      background: var(--off-white);
+      padding: 2.5rem 2.5rem 3rem;
+      transition: background var(--transition);
+      position: relative;
+    }
+    .service-card:hover { background: var(--ink-05); }
+    .service-num {
+      font-family: var(--font-serif);
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: var(--ink-10);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .service-title {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 0.75rem;
+      line-height: 1.2;
+    }
+    .service-desc {
+      font-size: 0.9rem;
+      color: var(--ink-60);
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .service-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+    }
+    .tag {
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-40);
+      background: var(--ink-05);
+      padding: 0.3rem 0.7rem;
+      border: 1px solid var(--ink-10);
+    }
+
+    /* ─── EVENTS ──────────────────────────────────────────── */
+    #events { background: var(--ink); color: var(--white); }
+    #events .section-label { color: var(--ink-40); }
+    #events .section-heading { color: var(--white); }
+    #events .divider { background: var(--ink-60); }
+    .events-intro p {
+      color: rgba(255,255,255,0.55);
+      font-weight: 300;
+      max-width: 560px;
+      margin-bottom: 3.5rem;
+    }
+    .events-list {
+      display: grid;
+      gap: 1px;
+      background: rgba(255,255,255,0.08);
+    }
+    .event-row {
+      display: grid;
+      grid-template-columns: auto 1fr auto;
+      gap: 2rem;
+      align-items: center;
+      background: var(--ink);
+      padding: 2rem 2.5rem;
+      transition: background var(--transition);
+    }
+    .event-row:hover { background: var(--ink-80); }
+    .event-year {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink-40);
+      white-space: nowrap;
+    }
+    .event-name {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 300;
+      color: var(--white);
+    }
+    .event-scale {
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--ink-40);
+      white-space: nowrap;
+      text-align: right;
+    }
+
+    /* ─── CREDENTIALS ─────────────────────────────────────── */
+    #credentials { background: var(--off-white); }
+    .creds-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+    .creds-block h3 {
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--ink-40);
+      margin-bottom: 1.5rem;
+    }
+    .cred-item {
+      display: flex;
+      gap: 1rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--ink-10);
+    }
+    .cred-item:last-child { border-bottom: none; }
+    .cred-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--ink-20);
+      flex-shrink: 0;
+      margin-top: 0.55rem;
+    }
+    .cred-name {
+      font-size: 0.9375rem;
+      font-weight: 400;
+      color: var(--ink);
+      line-height: 1.4;
+    }
+    .cred-sub {
+      font-size: 0.8rem;
+      color: var(--ink-40);
+      font-weight: 300;
+    }
+    .skills-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .skill-chip {
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: var(--ink-60);
+      background: var(--white);
+      border: 1px solid var(--ink-10);
+      padding: 0.4rem 0.9rem;
+      transition: border-color var(--transition), color var(--transition);
+    }
+    .skill-chip:hover { border-color: var(--ink-40); color: var(--ink); }
+
+    /* ─── CONTACT ─────────────────────────────────────────── */
+    #contact { background: var(--white); }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+    .contact-text p {
+      color: var(--ink-60);
+      font-weight: 300;
+      margin-bottom: 2rem;
+    }
+    .contact-links {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .contact-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+      color: var(--ink);
+      font-size: 0.9375rem;
+      font-weight: 300;
+      padding: 1rem 1.25rem;
+      border: 1px solid var(--ink-10);
+      transition: border-color var(--transition), background var(--transition), transform var(--transition);
+    }
+    .contact-link:hover {
+      border-color: var(--ink);
+      background: var(--ink-05);
+      transform: translateX(4px);
+    }
+    .contact-link-icon {
+      font-size: 1rem;
+      width: 20px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .contact-link-label {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-40);
+      min-width: 60px;
+    }
+    .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+    .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+    .form-group label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink-40);
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      font-family: var(--font-sans);
+      font-size: 0.9375rem;
+      font-weight: 300;
+      color: var(--ink);
+      background: var(--off-white);
+      border: 1px solid var(--ink-10);
+      padding: 0.875rem 1rem;
+      outline: none;
+      transition: border-color var(--transition);
+      resize: none;
+      appearance: none;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus { border-color: var(--ink-40); }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .form-submit {
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--ink);
+      border: none;
+      padding: 1rem 2rem;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      align-self: flex-start;
+      transition: background var(--transition), transform var(--transition);
+    }
+    .form-submit:hover { background: var(--ink-80); transform: translateY(-2px); }
+
+    /* ─── FOOTER ──────────────────────────────────────────── */
+    footer {
+      background: var(--ink);
+      color: var(--ink-40);
+      padding: 3rem 2rem;
+    }
+    .footer-inner {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    footer .nav-logo img { filter: brightness(0) invert(1); opacity: 0.5; }
+    .footer-copy {
+      font-size: 0.8rem;
+      font-weight: 300;
+    }
+    .footer-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .footer-links a {
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-40);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+    .footer-links a:hover { color: var(--white); }
+
+    /* ─── MOBILE MENU ─────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .nav-links, .nav-cta { display: none; }
+      .nav-toggle { display: flex; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        top: 68px; left: 0; right: 0;
+        background: var(--white);
+        padding: 2rem;
+        gap: 1.5rem;
+        border-bottom: 1px solid var(--ink-10);
+        box-shadow: 0 8px 32px rgba(32,31,35,0.1);
+      }
+      .about-grid, .contact-grid, .creds-grid { grid-template-columns: 1fr; gap: 3rem; }
+      .services-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-stats { grid-template-columns: repeat(3, auto); gap: 2rem; }
+      .event-row { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.5rem; }
+      .event-scale { text-align: left; }
+      .footer-inner { flex-direction: column; align-items: flex-start; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-stats { grid-template-columns: 1fr 1fr; }
+    }
+
+    /* ─── ANIMATIONS ──────────────────────────────────────── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="nav">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">
+        <span style="font-family:var(--font-serif);font-size:1.25rem;font-weight:400;color:var(--ink);letter-spacing:0.02em;">Roma Valentine</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#credentials">Credentials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <a href="#contact" class="nav-cta">Work With Me</a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="hero-inner">
+      <p class="hero-eyebrow">Kansas City, Missouri</p>
+      <h1 class="hero-title">
+        Roma<br />Valentine.
+      </h1>
+      <p class="hero-sub">Community Operations Specialist &amp; Event Coordinator</p>
+      <p class="hero-tagline">
+        I build the operational systems that make community events actually work —
+        coordinating festivals for 300 people, building volunteer frameworks from scratch,
+        and founding organizations that outlast the moment.
+      </p>
+      <div class="hero-actions">
+        <a href="#services" class="btn-primary">Explore Services</a>
+        <a href="#contact" class="btn-secondary">Get In Touch</a>
+      </div>
+      <div class="hero-stats">
+        <div>
+          <div class="stat-num">300+</div>
+          <div class="stat-label">Max Event Attendees</div>
+        </div>
+        <div>
+          <div class="stat-num">15+</div>
+          <div class="stat-label">Years Operations Experience</div>
+        </div>
+        <div>
+          <div class="stat-num">10+</div>
+          <div class="stat-label">Communities Convened</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="section-inner">
+      <p class="section-label fade-up">About</p>
+      <h2 class="section-heading fade-up">
+        Where systems<br /><em>meet soul.</em>
+      </h2>
+      <div class="divider fade-up"></div>
+      <div class="about-grid">
+        <div class="about-text fade-up">
+          <p>
+            Roma Valentine sits at the intersection of healthcare operations and community organizing —
+            a combination no one else has. With 15+ years in Medicare Risk Adjustment and project management,
+            she brings the precision of clinical systems to the human work of building belonging.
+          </p>
+          <p>
+            She has coordinated events from intimate community dinners to 300-person multi-day festivals,
+            building every supporting system from the ground up: governance structures, safety protocols,
+            volunteer frameworks, vendor contracts, and harm reduction partnerships.
+          </p>
+          <p>
+            In 2024, she founded the Kansas City Intentional Communities Leadership Alliance (KC ICLA),
+            convening 20+ leaders from 10+ regional communities into a quarterly collaboration network.
+            She is a certified coder and auditor, a PMP candidate, and a 16-year student of Ayurveda —
+            a practitioner who tracks outcomes to prove the work matters.
+          </p>
+          <p>
+            Neurodivergent, trauma-informed, and values-driven: Roma doesn't just run events.
+            She builds the infrastructure that turns gatherings into communities.
+          </p>
+        </div>
+        <div class="about-pillars fade-up">
+          <div class="pillar">
+            <div class="pillar-icon">◆</div>
+            <div class="pillar-title">Healthcare + Community Bridge</div>
+            <div class="pillar-desc">Unique expertise connecting Medicare/SDOH frameworks to grassroots wellness networks — a rare fluency in both systems.</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">◈</div>
+            <div class="pillar-title">Data-Driven Operations</div>
+            <div class="pillar-desc">Power BI, SQL, Python — Roma builds tracking systems and presents evidence, because outcomes deserve to be measured.</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">◇</div>
+            <div class="pillar-title">Large-Scale Event Execution</div>
+            <div class="pillar-desc">Proven at 75–300+ attendees across festivals, workshops, summits, and multi-day immersive events with complex logistics.</div>
+          </div>
+          <div class="pillar">
+            <div class="pillar-icon">○</div>
+            <div class="pillar-title">Trauma-Informed Leadership</div>
+            <div class="pillar-desc">Neurodivergent-inclusive programming, NVC facilitation, and the lived experience to hold space with both rigor and care.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="section-inner">
+      <p class="section-label fade-up">Services</p>
+      <h2 class="section-heading fade-up">
+        What I bring<br /><em>to your work.</em>
+      </h2>
+      <div class="divider fade-up"></div>
+      <div class="services-intro fade-up">
+        <p>
+          From a single event to a full organizational infrastructure build, Roma offers consulting
+          and coordination services for intentional communities, wellness organizations, grassroots
+          nonprofits, and healthcare-adjacent community programs.
+        </p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card fade-up">
+          <div class="service-num">01</div>
+          <div class="service-title">Event Coordination &amp; Production</div>
+          <div class="service-desc">
+            End-to-end coordination for large-scale community events — vendor management, performer
+            logistics, safety planning, volunteer recruitment and scheduling, site layout, and
+            real-time crisis management. Proven at 75–300+ attendees.
+          </div>
+          <div class="service-tags">
+            <span class="tag">Festivals</span>
+            <span class="tag">Workshops</span>
+            <span class="tag">Multi-Day Events</span>
+            <span class="tag">Crisis Management</span>
+          </div>
+        </div>
+        <div class="service-card fade-up">
+          <div class="service-num">02</div>
+          <div class="service-title">Operational Systems Design</div>
+          <div class="service-desc">
+            Building the infrastructure your organization needs to scale: board governance, budgets,
+            accounting systems, legal foundations, volunteer frameworks, safety protocols, and
+            harm reduction partnerships. From scratch or from chaos.
+          </div>
+          <div class="service-tags">
+            <span class="tag">Governance</span>
+            <span class="tag">Safety Protocols</span>
+            <span class="tag">Volunteer Systems</span>
+            <span class="tag">Nonprofit Transition</span>
+          </div>
+        </div>
+        <div class="service-card fade-up">
+          <div class="service-num">03</div>
+          <div class="service-title">Community Organization Consulting</div>
+          <div class="service-desc">
+            Strategic consulting for intentional communities and grassroots organizations navigating
+            growth, governance challenges, or nonprofit development. Facilitation for leadership
+            summits and inter-community collaboration initiatives.
+          </div>
+          <div class="service-tags">
+            <span class="tag">Strategic Planning</span>
+            <span class="tag">Summit Facilitation</span>
+            <span class="tag">Capacity Building</span>
+            <span class="tag">Coalition Building</span>
+          </div>
+        </div>
+        <div class="service-card fade-up">
+          <div class="service-num">04</div>
+          <div class="service-title">Healthcare–Community Integration</div>
+          <div class="service-desc">
+            Developing SDOH measurement frameworks and data collection systems that demonstrate
+            the health impact of community programs. Bridging clinical language with community
+            trust — building the case for healthcare investment in grassroots wellness.
+          </div>
+          <div class="service-tags">
+            <span class="tag">SDOH Frameworks</span>
+            <span class="tag">Program Evaluation</span>
+            <span class="tag">Data Analytics</span>
+            <span class="tag">Medicare/Medicaid</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section id="events">
+    <div class="section-inner">
+      <p class="section-label fade-up">Signature Events</p>
+      <h2 class="section-heading fade-up">
+        The work<br /><em>in practice.</em>
+      </h2>
+      <div class="divider fade-up"></div>
+      <div class="events-intro fade-up">
+        <p>
+          A record of large-scale events coordinated — each built on systems designed for
+          the unexpected.
+        </p>
+      </div>
+      <div class="events-list fade-up">
+        <div class="event-row">
+          <div class="event-year">2024</div>
+          <div>
+            <div class="event-name">Pool Party &amp; Festival — Dharma House</div>
+            <div class="event-scale" style="font-size:0.8rem;color:var(--ink-60);font-family:var(--font-sans);margin-top:0.25rem;">Workshops · Vendor Marketplace · DJ Entertainment · Camping · Fire Circle</div>
+          </div>
+          <div class="event-scale">300 Attendees</div>
+        </div>
+        <div class="event-row">
+          <div class="event-year">2024</div>
+          <div>
+            <div class="event-name">Outdoor Music Festival — Dharma House</div>
+            <div class="event-scale" style="font-size:0.8rem;color:var(--ink-60);font-family:var(--font-sans);margin-top:0.25rem;">Stage Construction · Performer Coordination · Weather Emergency Pivot</div>
+          </div>
+          <div class="event-scale">100 Attendees</div>
+        </div>
+        <div class="event-row">
+          <div class="event-year">2024</div>
+          <div>
+            <div class="event-name">Community Wedding Dinner — Dharma House</div>
+            <div class="event-scale" style="font-size:0.8rem;color:var(--ink-60);font-family:var(--font-sans);margin-top:0.25rem;">Elaborare Field Setup · Full Buffet Service · Costumed Volunteer Staff</div>
+          </div>
+          <div class="event-scale">75 Attendees</div>
+        </div>
+        <div class="event-row">
+          <div class="event-year">2024</div>
+          <div>
+            <div class="event-name">KC Intentional Communities Leadership Alliance Summit</div>
+            <div class="event-scale" style="font-size:0.8rem;color:var(--ink-60);font-family:var(--font-sans);margin-top:0.25rem;">Founder &amp; Organizer · Ongoing Quarterly Collaboration</div>
+          </div>
+          <div class="event-scale">20+ Leaders · 10+ Communities</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CREDENTIALS -->
+  <section id="credentials">
+    <div class="section-inner">
+      <p class="section-label fade-up">Credentials</p>
+      <h2 class="section-heading fade-up">
+        The foundation<br /><em>behind the work.</em>
+      </h2>
+      <div class="divider fade-up"></div>
+      <div class="creds-grid fade-up">
+        <div>
+          <div class="creds-block">
+            <h3>Certifications</h3>
+            <div class="cred-item">
+              <div class="cred-dot"></div>
+              <div>
+                <div class="cred-name">Certified Professional Coder (CPC)</div>
+                <div class="cred-sub">AAPC</div>
+              </div>
+            </div>
+            <div class="cred-item">
+              <div class="cred-dot"></div>
+              <div>
+                <div class="cred-name">Certified Professional Medical Auditor (CPMA)</div>
+                <div class="cred-sub">AAPC</div>
+              </div>
+            </div>
+            <div class="cred-item">
+              <div class="cred-dot"></div>
+              <div>
+                <div class="cred-name">Certified Risk Adjustment Coder (CRC)</div>
+                <div class="cred-sub">AAPC</div>
+              </div>
+            </div>
+            <div class="cred-item">
+              <div class="cred-dot"></div>
+              <div>
+                <div class="cred-name">Project Management Professional (PMP)</div>
+                <div class="cred-sub">In Progress — Google / Coursera</div>
+              </div>
+            </div>
+            <div class="cred-item">
+              <div class="cred-dot"></div>
+              <div>
+                <div class="cred-name">Data Analytics Certificate</div>
+                <div class="cred-sub">In Progress — LaunchCode</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="creds-block" style="margin-top:3rem;">
+            <h3>Education</h3>
+            <div class="cred-item">
+              <div class="cred-dot"></div>
+              <div>
+                <div class="cred-name">BA, Ayurveda Wellness &amp; Business</div>
+                <div class="cred-sub">Maharishi International University — Expected 2026</div>
+              </div>
+            </div>
+            <div class="cred-item">
+              <div class="cred-dot"></div>
+              <div>
+                <div class="cred-name">Medical Assistant Diploma</div>
+                <div class="cred-sub">Sanford Brown College, 2004</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="creds-block">
+            <h3>Core Skills</h3>
+            <div class="skills-cloud">
+              <span class="skill-chip">Event Coordination (75–300+)</span>
+              <span class="skill-chip">Safety &amp; Harm Reduction</span>
+              <span class="skill-chip">Volunteer Management</span>
+              <span class="skill-chip">Nonprofit Development</span>
+              <span class="skill-chip">Crisis Leadership</span>
+              <span class="skill-chip">Trauma-Informed Programming</span>
+              <span class="skill-chip">Medicare Risk Adjustment</span>
+              <span class="skill-chip">Power BI</span>
+              <span class="skill-chip">SQL</span>
+              <span class="skill-chip">Python</span>
+              <span class="skill-chip">Excel / Advanced Analytics</span>
+              <span class="skill-chip">SDOH Interventions</span>
+              <span class="skill-chip">Workshop Facilitation</span>
+              <span class="skill-chip">Board Governance</span>
+              <span class="skill-chip">Vendor Management</span>
+              <span class="skill-chip">NVC Facilitation</span>
+              <span class="skill-chip">Neurodivergent-Inclusive Design</span>
+              <span class="skill-chip">Forum Facilitation</span>
+            </div>
+          </div>
+
+          <div class="creds-block" style="margin-top:3rem;">
+            <h3>Community Leadership</h3>
+            <div class="cred-item">
+              <div class="cred-dot"></div>
+              <div>
+                <div class="cred-name">Founder — KC Intentional Communities Leadership Alliance</div>
+              </div>
+            </div>
+            <div class="cred-item">
+              <div class="cred-dot"></div>
+              <div>
+                <div class="cred-name">Member — International Association of Women (IAW)</div>
+              </div>
+            </div>
+            <div class="cred-item">
+              <div class="cred-dot"></div>
+              <div>
+                <div class="cred-name">Member — Suburban Toastmasters</div>
+              </div>
+            </div>
+            <div class="cred-item">
+              <div class="cred-dot"></div>
+              <div>
+                <div class="cred-name">Mentor — KC Housing Authority Youth Build Program</div>
+              </div>
+            </div>
+            <div class="cred-item">
+              <div class="cred-dot"></div>
+              <div>
+                <div class="cred-name">Volunteer — Boy Scouts of America (10 years)</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="section-inner">
+      <p class="section-label fade-up">Contact</p>
+      <h2 class="section-heading fade-up">
+        Let's build<br /><em>something real.</em>
+      </h2>
+      <div class="divider fade-up"></div>
+      <div class="contact-grid">
+        <div class="fade-up">
+          <p class="contact-text">
+            <p style="color:var(--ink-60);font-weight:300;margin-bottom:2rem;">
+              Whether you're planning a large-scale event, building an organizational
+              infrastructure, or looking to bridge healthcare and community wellness —
+              reach out. Roma is based in Kansas City, Missouri and available for
+              local, regional, and remote engagements.
+            </p>
+          </p>
+          <div class="contact-links">
+            <a href="tel:8163050993" class="contact-link">
+              <span class="contact-link-icon">✆</span>
+              <span class="contact-link-label">Phone</span>
+              <span>816.305.0993</span>
+            </a>
+            <a href="mailto:RomaDValentine@gmail.com" class="contact-link">
+              <span class="contact-link-icon">✉</span>
+              <span class="contact-link-label">Email</span>
+              <span>RomaDValentine@gmail.com</span>
+            </a>
+            <a href="https://linkedin.com/in/roma-valentine" target="_blank" rel="noopener" class="contact-link">
+              <span class="contact-link-icon">in</span>
+              <span class="contact-link-label">LinkedIn</span>
+              <span>linkedin.com/in/roma-valentine</span>
+            </a>
+            <a href="#" class="contact-link">
+              <span class="contact-link-icon">◎</span>
+              <span class="contact-link-label">Location</span>
+              <span>Kansas City, Missouri</span>
+            </a>
+          </div>
+        </div>
+        <div class="fade-up">
+          <form class="contact-form" onsubmit="handleSubmit(event)">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="fname">First Name</label>
+                <input type="text" id="fname" name="fname" required />
+              </div>
+              <div class="form-group">
+                <label for="lname">Last Name</label>
+                <input type="text" id="lname" name="lname" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="org">Organization / Context</label>
+              <input type="text" id="org" name="org" placeholder="Optional" />
+            </div>
+            <div class="form-group">
+              <label for="service">Area of Interest</label>
+              <select id="service" name="service">
+                <option value="">Select one...</option>
+                <option>Event Coordination &amp; Production</option>
+                <option>Operational Systems Design</option>
+                <option>Community Organization Consulting</option>
+                <option>Healthcare–Community Integration</option>
+                <option>Other / General Inquiry</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="form-submit">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <a href="#home" class="nav-logo">
+        <span style="font-family:var(--font-serif);font-size:1.1rem;font-weight:400;color:rgba(255,255,255,0.5);letter-spacing:0.02em;">Roma Valentine</span>
+      </a>
+      <p class="footer-copy">© 2024 Roma Valentine. Kansas City, Missouri.</p>
+      <ul class="footer-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll state
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 20);
+    });
+
+    // Mobile menu
+    const toggle = document.getElementById('navToggle');
+    const navLinks = document.getElementById('navLinks');
+    toggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+    navLinks.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => navLinks.classList.remove('open'));
+    });
+
+    // Intersection observer for fade-up
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // Contact form
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.form-submit');
+      btn.textContent = 'Sent!';
+      btn.style.background = 'var(--ink-60)';
+      btn.disabled = true;
+      setTimeout(() => {
+        btn.textContent = 'Send Message';
+        btn.style.background = '';
+        btn.disabled = false;
+        e.target.reset();
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
